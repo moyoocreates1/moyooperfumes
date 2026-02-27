@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MoyooCreates — Setup Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --clay: #C4724A; --bark: #3B2A1A; --parch: #F7F0E3;
+      --linen: #EDE4D3; --smoke: #9E8E7E; --sage: #8FA67E;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body { font-family: 'DM Sans', sans-serif; background: var(--parch); color: var(--bark); line-height: 1.7; }
+    header { background: var(--bark); padding: 2rem 8vw; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-family: 'Playfair Display', serif; color: #E8D5B7; font-size: 1.4rem; }
+    header h1 span { color: var(--clay); font-style: italic; }
+    header a { color: rgba(232,213,183,.5); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; }
+    header a:hover { color: var(--clay); }
+    .container { max-width: 760px; margin: 0 auto; padding: 5rem 2rem; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 1rem; }
+    .subtitle { color: var(--smoke); font-size: 1.05rem; margin-bottom: 3rem; }
+    .step { background: white; border: 1px solid rgba(59,42,26,.08); padding: 2rem 2.5rem; margin-bottom: 1.5rem; position: relative; }
+    .step-num {
+      position: absolute; top: -14px; left: 2rem;
+      background: var(--clay); color: white;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 500;
+    }
+    .step h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: .75rem; color: var(--bark); }
+    .step p, .step li { font-size: .92rem; color: var(--smoke); margin-bottom: .5rem; }
+    .step ul { padding-left: 1.2rem; }
+    .step li { margin-bottom: .35rem; }
+    code {
+      background: var(--linen); color: var(--bark);
+      padding: 2px 7px; font-family: monospace; font-size: .85rem;
+      border: 1px solid rgba(59,42,26,.1);
+    }
+    .highlight { background: rgba(196,114,74,.08); border-left: 3px solid var(--clay); padding: 1rem 1.25rem; margin-top: 1rem; font-size: .875rem; color: var(--bark); }
+    .tag-ok { background: rgba(143,166,126,.15); color: var(--sage); padding: 3px 10px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+    .btn-link {
+      display: inline-block; background: var(--clay); color: white;
+      padding: 12px 28px; text-decoration: none;
+      font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; margin-top: 1rem;
+    }
+    .btn-link:hover { background: #A0522D; }
+    .divider { height: 1px; background: linear-gradient(90deg, var(--clay), transparent); margin: 3rem 0; }
+    footer { background: var(--bark); padding: 2rem 8vw; text-align: center; }
+    footer p { color: rgba(232,213,183,.3); font-size: .8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Moyoo<span>Creates</span></h1>
+    <div style="display:flex;gap:2rem">
+      <a href="index.html">← Back to Store</a>
+      <a href="admin.html">Seller Dashboard</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Setup Guide</h2>
+    <p class="subtitle">Get your MoyooCreates store fully live in about 20 minutes. No coding needed — just paste and go.</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Open both files in a browser right now</h3>
+      <p>Your store is already working in <strong>demo mode</strong>. Just double-click <code>index.html</code> to see your storefront. Double-click <code>admin.html</code> to see your seller dashboard. No internet required for this.</p>
+      <div class="highlight">✅ In demo mode, you can add/edit products, browse the store, and see how everything looks — but payments won't go through yet.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Create a free Firebase account</h3>
+      <ul>
+        <li>Go to <strong>console.firebase.google.com</strong> → sign in with Google</li>
+        <li>Click <strong>"Add project"</strong> → name it "moyoocreates" → Continue</li>
+        <li>On the left sidebar → click <strong>Firestore Database</strong> → Create database → Start in <em>production mode</em> → Choose a location (e.g. <code>europe-west1</code>) → Done</li>
+        <li>On the left sidebar → click <strong>Authentication</strong> → Get started → Enable <strong>Email/Password</strong> → Save</li>
+        <li>Still in Authentication → click <strong>Users</strong> tab → <strong>Add user</strong> → enter your email and a strong password. This is your seller login.</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Get your Firebase config keys</h3>
+      <ul>
+        <li>In Firebase → click the <strong>gear icon</strong> (top left) → <strong>Project settings</strong></li>
+        <li>Scroll down to <strong>"Your apps"</strong> → click <strong>Web (&lt;/&gt;)</strong></li>
+        <li>Register app → name it "moyoo-web" → click Continue (skip Firebase hosting)</li>
+        <li>You'll see a block of code with your keys — copy these values:</li>
+      </ul>
+      <div class="highlight">
+        <code>apiKey</code> · <code>authDomain</code> · <code>projectId</code> · <code>storageBucket</code> · <code>messagingSenderId</code> · <code>appId</code>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Get your Paystack keys</h3>
+      <ul>
+        <li>Go to <strong>dashboard.paystack.com</strong> → sign up (it's free)</li>
+        <li>On the left → <strong>Settings → API Keys & Webhooks</strong></li>
+        <li>Copy your <strong>Public Key</strong> (starts with <code>pk_test_</code> or <code>pk_live_</code>)</li>
+        <li>Use test keys first to make sure everything works before going live</li>
+      </ul>
+      <div class="highlight">💡 For Paystack to send payment confirmations to your store, you need to host your files online (see Step 6) and set the Webhook URL there.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <h3>Paste your keys into the HTML files</h3>
+      <p>Open <code>index.html</code> in a text editor (like Notepad or VS Code). Scroll to the very bottom and find:</p>
+      <div class="highlight" style="font-family:monospace;font-size:.8rem">
+        const CONFIG = {<br/>
+        &nbsp;&nbsp;firebase: {<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;apiKey: "YOUR_FIREBASE_API_KEY",&nbsp;&nbsp;<span style="color:var(--clay)">← replace this</span><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;...<br/>
+        &nbsp;&nbsp;},<br/>
+        &nbsp;&nbsp;paystackPublicKey: "pk_test_...",&nbsp;&nbsp;<span style="color:var(--clay)">← replace this</span><br/>
+        &nbsp;&nbsp;isDemoMode: true&nbsp;&nbsp;<span style="color:var(--clay)">← change to false</span><br/>
+        }
+      </div>
+      <p style="margin-top:.75rem">Do the same in <code>admin.html</code> — same CONFIG block at the bottom. Change <code>isDemoMode</code> to <code>false</code> in both files when done.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <h3>Host your files online (free options)</h3>
+      <p>To use Paystack payments and share your store publicly, upload your files to a hosting service:</p>
+      <ul>
+        <li><strong>Netlify (easiest):</strong> Go to netlify.com → drag your folder onto the page → done. You get a link like <code>moyoo.netlify.app</code></li>
+        <li><strong>GitHub Pages (free forever):</strong> Create a GitHub account → new repository → upload files → enable Pages in settings</li>
+        <li><strong>Vercel:</strong> vercel.com → Import project → upload folder</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <h3>Set up Paystack Webhook (for email alerts)</h3>
+      <p>Once your site is live online, go to Paystack dashboard → Settings → API Keys & Webhooks → scroll to Webhook URL → enter:</p>
+      <div class="highlight" style="font-family:monospace">https://YOUR-SITE-URL.netlify.app/api/paystack/webhook</div>
+      <p style="margin-top:.75rem">⚠️ <strong>Note:</strong> The Paystack webhook (which sends emails to you and your buyer) requires the Next.js backend we built earlier. For the plain HTML version, Paystack payments will still work — stock will update and orders will save — but automatic email alerts require the Next.js version or a small backend service like <a href="https://pipedream.com" style="color:var(--clay)">Pipedream</a> or <a href="https://n8n.io" style="color:var(--clay)">n8n</a>.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">8</div>
+      <h3>Add your first real product</h3>
+      <ul>
+        <li>Open <code>admin.html</code> → log in with the email/password you set in Firebase Auth</li>
+        <li>Click <strong>+ Add Product</strong></li>
+        <li>Fill in: brand, name, description, price (in ₦), units in stock</li>
+        <li>For the image: upload a photo to <a href="https://imgbb.com" style="color:var(--clay)">imgbb.com</a> or <a href="https://cloudinary.com" style="color:var(--clay)">Cloudinary</a> (both free) and paste the URL</li>
+        <li>Save — it appears on your storefront immediately!</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1.5rem">Need help?</h3>
+    <p style="color:var(--smoke);margin-bottom:2rem">If you get stuck on any step, the most common issues are:</p>
+    <ul style="color:var(--smoke);padding-left:1.2rem;margin-bottom:2rem">
+      <li style="margin-bottom:.5rem"><strong style="color:var(--bark)">Products not showing</strong> — make sure Firestore is enabled and <code>isDemoMode</code> is <code>false</code></li>
+      <li style="margin-bottom:.5rem"><strong style="color:var(--bark)">Can't log into admin</strong> — make sure you created a user in Firebase Auth → Users tab</li>
+      <li style="margin-bottom:.5rem"><strong style="color:var(--bark)">Payments not working</strong> — make sure your Paystack key is correct and <code>isDemoMode: false</code></li>
+      <li style="margin-bottom:.5rem"><strong style="color:var(--bark)">CORS errors</strong> — you must open the file via a web server (Netlify/Vercel), not from your local Desktop</li>
+    </ul>
+
+    <a href="index.html" class="btn-link">← View Your Store</a>
+  </div>
+
+  <footer>
+    <p>MoyooCreates · Setup Guide</p>
+  </footer>
+</body>
+</html>
