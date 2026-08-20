@@ -1,0 +1,44 @@
+
+    :root {
+      --clay: #C4724A; --bark: #3B2A1A; --parch: #F7F0E3;
+      --linen: #EDE4D3; --smoke: #9E8E7E; --sage: #8FA67E;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body { font-family: 'DM Sans', sans-serif; background: var(--parch); color: var(--bark); line-height: 1.7; }
+    header { background: var(--bark); padding: 2rem 8vw; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-family: 'Playfair Display', serif; color: #E8D5B7; font-size: 1.4rem; }
+    header h1 span { color: var(--clay); font-style: italic; }
+    header a { color: rgba(232,213,183,.5); font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; text-decoration: none; }
+    header a:hover { color: var(--clay); }
+    .container { max-width: 760px; margin: 0 auto; padding: 5rem 2rem; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; margin-bottom: 1rem; }
+    .subtitle { color: var(--smoke); font-size: 1.05rem; margin-bottom: 3rem; }
+    .step { background: white; border: 1px solid rgba(59,42,26,.08); padding: 2rem 2.5rem; margin-bottom: 1.5rem; position: relative; }
+    .step-num {
+      position: absolute; top: -14px; left: 2rem;
+      background: var(--clay); color: white;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 500;
+    }
+    .step h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: .75rem; color: var(--bark); }
+    .step p, .step li { font-size: .92rem; color: var(--smoke); margin-bottom: .5rem; }
+    .step ul { padding-left: 1.2rem; }
+    .step li { margin-bottom: .35rem; }
+    code {
+      background: var(--linen); color: var(--bark);
+      padding: 2px 7px; font-family: monospace; font-size: .85rem;
+      border: 1px solid rgba(59,42,26,.1);
+    }
+    .highlight { background: rgba(196,114,74,.08); border-left: 3px solid var(--clay); padding: 1rem 1.25rem; margin-top: 1rem; font-size: .875rem; color: var(--bark); }
+    .tag-ok { background: rgba(143,166,126,.15); color: var(--sage); padding: 3px 10px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+    .btn-link {
+      display: inline-block; background: var(--clay); color: white;
+      padding: 12px 28px; text-decoration: none;
+      font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; margin-top: 1rem;
+    }
+    .btn-link:hover { background: #A0522D; }
+    .divider { height: 1px; background: linear-gradient(90deg, var(--clay), transparent); margin: 3rem 0; }
+    footer { background: var(--bark); padding: 2rem 8vw; text-align: center; }
+    footer p { color: rgba(232,213,183,.3); font-size: .8rem; }
+  
